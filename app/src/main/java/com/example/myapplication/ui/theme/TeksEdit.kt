@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 fun FormDataDiri(modifier: Modifier){
     var txtNama by remember { mutableStateOf("") }
     var txtAlamat by remember { mutableStateOf("") }
-    var textJK by remember { mutableStateOf("") }
+    var txtJK by remember { mutableStateOf("") }
 
     var nama by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
@@ -52,19 +52,30 @@ fun FormDataDiri(modifier: Modifier){
         Row{
             gender.forEach { item ->
                 Row(modifier = Modifier.selectable(
-                    selected = textJK == item,
-                    onClick = {textJK = item}
+                    selected = txtJK == item,
+                    onClick = {txtJK = item}
                 ), verticalAlignment = Alignment.CenterVertically) {
                     RadioButton(
-                        selected = textJK == item,
+                        selected = txtJK == item,
                         onClick = {
-                            textJK == item
+                            txtJK == item
                         }
                     )
                     Text(item)
                 }
             }
         }
+
+        OutlinedTextField(
+            value = txtAlamat,
+            singleLine = true,
+            modifier = Modifier.width(250.dp),
+
+            label = { Text(text = "Alamat") },
+            onValueChange = {
+                txtAlamat = it
+            }
+        )
 
     }
 }
