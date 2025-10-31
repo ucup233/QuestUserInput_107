@@ -1,17 +1,17 @@
-package com.example.myapplication.ui.theme
+package com.example.myapplication
 
 import android.R
-import android.widget.RadioButton
-import androidx.compose.animation.core.withInfiniteAnimationFrameMillis
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -87,12 +87,8 @@ fun FormDataDiri(modifier: Modifier){
         )
 
         HorizontalDivider(
-            modifier = Modifier.padding(
-                bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(
-                    R.dimen.padding_medium
-                )
-            ),
-            thickness = dimensionResource(R.dimen.divider_tipis),
+            modifier = Modifier.padding(bottom = 30.dp, top = 30.dp),
+            thickness = 1.dp,
             color = Color.DarkGray
         )
 
@@ -105,18 +101,24 @@ fun FormDataDiri(modifier: Modifier){
                 alamat = txtAlamat
             }
         ) {
-            Text(stringResource(R.string.submit))
+            Text(text = "Submit")
         }
 
         HorizontalDivider(
-            modifier = Modifier.padding(
-                bottom = dimensionResource(R.dimen.padding_medium), top = dimensionResource(
-                    R.dimen.padding_medium
-                )
-            ),
-            thickness = dimensionResource(R.dimen.divider_tipis),
+            modifier = Modifier.padding(bottom = 30.dp, top = 30.dp),
+            thickness = 1.dp,
             color = Color.DarkGray
         )
+
+        ElevatedCard(
+            elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.Black),
+            modifier = Modifier
+                .height(height = 100.dp)
+                .width(width = 300.dp)
+        ) {
+
+        }
 
     }
 }
