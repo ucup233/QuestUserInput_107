@@ -1,12 +1,17 @@
 package com.example.myapplication.ui.theme
 
 import android.R
+import android.widget.RadioButton
+import androidx.compose.animation.core.withInfiniteAnimationFrameMillis
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,7 +26,7 @@ import androidx.compose.ui.unit.dp
 fun FormDataDiri(modifier: Modifier){
     var txtNama by remember { mutableStateOf("") }
     var txtAlamat by remember { mutableStateOf("") }
-    var txtJK by remember { mutableStateOf("") }
+    var textJK by remember { mutableStateOf("") }
 
     var nama by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
@@ -44,7 +49,22 @@ fun FormDataDiri(modifier: Modifier){
             }
         )
 
-
+        Row{
+            gender.forEach { item ->
+                Row(modifier = Modifier.selectable(
+                    selected = textJK == item,
+                    onClick = {textJK = item}
+                ), verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(
+                        selected = textJK == item,
+                        onClick = {
+                            textJK == item
+                        }
+                    )
+                    Text(item)
+                }
+            }
+        }
 
     }
 }
