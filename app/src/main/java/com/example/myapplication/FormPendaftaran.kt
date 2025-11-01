@@ -127,6 +127,7 @@ fun FormPendaftaran(modifier: Modifier) {
                             )
                         }
                     }
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
             }
         }
