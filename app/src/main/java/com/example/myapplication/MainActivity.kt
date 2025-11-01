@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    FormDataDiri(
+                    FormPendaftaran(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
